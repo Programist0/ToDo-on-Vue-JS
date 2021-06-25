@@ -36,9 +36,18 @@
 			}"></span>
 			<span :class="['bold', {'primary': inputValue.length > 5}]"></span>
 			<hr/>
-			<ul class="list" v-if="notes.length !== 0">
-				<li class="list-item" v-for="(note, index) in notes" :style="{backgroundColor: importantNotes[index] === true < 10 ? '#ffc6c6' : '#fff6c6', fontWeight: importantNotes[index] === true < 10 ? '800' : '300'}">{{note}}<strong>{{timeOfNote[index]}}</strong><button class="btn danger" v-on:click="deleteNote(index, $event)">Delete note</button></li>
-				<li>
+			<ul :class="{'list': true, 'list-column': column}" v-if="notes.length !== 0">
+				<li class="list-counter">
+					View:
+					<input type="checkbox" id="my_checkbox" v-model="column" name="column">
+					<label for="my_checkbox" :class="['label_checkbox', {'hide': column}]">blocks</label>
+					<label for="my_checkbox" :class="['label_checkbox', {'hide': !column}]">rows</label>
+				</li>
+				<li :class="{'list-item': true, 'list-item-column': column}"
+				 v-for="(note, index) in notes" 
+				 :style="{backgroundColor: importantNotes[index] === true < 10 ? '#ffc6c6' : '#fff6c6', fontWeight: importantNotes[index] === true < 10 ? '800' : '300'}"
+				 >{{note}}<strong>{{timeOfNote[index]}}</strong><button class="btn danger" v-on:click="deleteNote(index, $event)">Delete note</button></li>
+				<li class="list-counter">
 					<strong>Count of notes: {{notes.length}}</strong>
 				</li>
 			</ul>
