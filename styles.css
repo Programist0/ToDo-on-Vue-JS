@@ -404,3 +404,7 @@ h3 {
 .important input{
     width: 3%;
 }
+.special_info{
+    min-height: 10px;
+    color: #f00;
+}

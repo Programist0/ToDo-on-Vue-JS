@@ -20,7 +20,7 @@
 			}">{{ title }}</h1>
 			<div class="form-control">
 				<input type="time" v-model="time">
-				<br>
+				<div class="special_info">{{info}}</div>
 				<input type="text" v-bind:placeholder="placeholderString" 
 				:value="inputValue"
 				@input="inputChangeHandler"

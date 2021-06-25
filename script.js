@@ -37,6 +37,9 @@ const App = {
 				this.first = false;
 				this.inputValue = '';
 			}
+			if(this.counter >= 1){
+				this.placeholderString = 'Add your new note here..';
+			}
 		},
 		deleteNote(index, event){
 			this.notes.splice(index, 1);
