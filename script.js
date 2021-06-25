@@ -1,4 +1,7 @@
-
+/* идея номер один это возможность изменения отображения заметок, с строчек в плитку через привязку класса с условием 
+   вторая идея это возможность изменения дизайна ежедневника прямо на сайте
+   третья, возможность захвата заметки и её перемещения по типу соундклауда
+*/
 const App = {
 	data(){
 		return{
@@ -13,7 +16,8 @@ const App = {
 			important: false,
 			importantNotes: [],
 			time: '12:00',
-			first: false
+			first: false,
+			column: false
 		}
 	},
 	methods: {
@@ -22,7 +26,6 @@ const App = {
 		},
 		addNewNote(){
 			if(this.inputValue !== ''){
-				console.log(this.time);
 				if(this.first){
 					this.notes.unshift(this.inputValue);
 					this.importantNotes.unshift(this.important);
