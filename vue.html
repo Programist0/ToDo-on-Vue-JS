@@ -21,15 +21,15 @@
 			<div class="form-control">
 				<input type="time" v-model="time">
 				<div class="special_info">{{info}}</div>
-				<input type="text" v-bind:placeholder="placeholderString" 
+				<input type="text" :placeholder="placeholderString" 
 				:value="inputValue"
 				@input="inputChangeHandler"
-				v-on:keypress.enter="addNewNote"
+				@keypress.enter="addNewNote"
 				/>
 				<div class="important"><input type="checkbox" v-model="important">Important note</div>
 				<div class="important"><input type="checkbox" v-model="first">Take the note top of the list</div>
 			</div>
-			<button class="btn" v-on:click="addNewNote">Add</button>
+			<button class="btn" @click="addNewNote">Add</button>
 			<span :class="{
 				'primary': true,
 				'bold': inputValue.length > 5
@@ -46,7 +46,7 @@
 				<li :class="{'list-item': true, 'list-item-column': column}"
 				 v-for="(note, index) in notes" 
 				 :style="{backgroundColor: importantNotes[index] === true < 10 ? '#ffc6c6' : '#fff6c6', fontWeight: importantNotes[index] === true < 10 ? '800' : '300'}"
-				 >{{note}}<strong>{{timeOfNote[index]}}</strong><button class="btn danger" v-on:click="deleteNote(index, $event)">Delete note</button></li>
+				 >{{note}}<strong>{{timeOfNote[index]}}</strong><button class="btn danger" @click="deleteNote(index, $event)">Delete note</button></li>
 				<li class="list-counter">
 					<strong>Count of notes: {{notes.length}}</strong>
 				</li>
